@@ -1,0 +1,142 @@
+name: lagoon
+qualifier: testbeta
+
+ekara:
+ 
+  components:
+    helios:
+      repository: ekara-platform/openstack-provider
+      ref: 1.0.0-beta1
+    swarm:
+      repository: ekara-platform/swarm-orchestrator
+      ref: 1.0.0-beta1      
+    visualizer:
+      repository: ekara-platform/swarm-visualizer
+      ref: 1.0.0-beta1
+    distrib:
+     repository: https://github.psa-cloud.com/u063326/lagoon-distribution
+     ref: reflex-addon    
+     auth:
+       method: basic
+       user: {{ .git_user }}
+       password: {{ .git_password }}
+    
+tasks:
+  testhook_pre:
+    component: distrib
+    playbook: pre-create.yml
+
+  testhook_post:
+    component: distrib
+    playbook: post-create.yml
+
+orchestrator:
+  component: swarm
+  docker:
+    params:
+      log-driver: json-file
+      log-opts: 
+        max-size: "20m"
+        max-file: "3"
+      disable-legacy-registry: true
+      userland-proxy: true
+      live-restore: false
+      hosts: 
+      - "unix:///var/run/docker.sock"
+      - "tcp://0.0.0.0:2376"
+      tls: true
+      tlscacert: "/etc/docker/certs/ca.pem"
+      tlscert: "/etc/docker/certs/cert.pem"
+      tlskey: "/etc/docker/certs/key.pem"
+      tlsverify: true 
+      registry-mirrors:
+      - "https://repository.inetpsa.com/"
+      
+    registries:
+      repository.inetpsa.com:
+        certificate: {{ .repository_cert }}
+        username: {{ .docker_username }}
+        password: {{ .docker_password }}
+
+providers:
+  helios:
+    component: helios
+
+    params: 
+      config:
+        auth:
+          auth_url: 'https://helios-be.inetpsa.com:5000/v3/'
+          username: {{ .user_name }}
+          password: {{ .user_password }}
+          user_domain_name: ldap
+          project_domain_name: Default
+        identity_api_version: 3
+      cacert: 
+      - {{ .cert_one }}
+      - {{ .cert_two }}
+
+    proxy:
+      http_proxy: {{ .proxy_http }}
+      https_proxy: {{ .proxy_https }}
+      no_proxy: "{{ .proxy_no }}"
+
+
+nodes:
+  nodeset1:
+    instances: 1
+    
+    provider:
+      name: helios
+      proxy:
+        http_proxy: {{ .proxy_http }}
+        https_proxy: {{ .proxy_https }}
+        no_proxy: "{{ .proxy_no }}"
+
+      params:
+        prefix_names: noreflex 
+        image: PSA_Ubuntu_16.04
+
+        private_network: beos0025_net_dev
+        public_network: L3OUT_Intranet_Safety
+        security_groups: 
+        - beos0025_sg_dev
+        - beos0025_sg_wallix
+        flavor: docker.medium
+        dns_zone: {{ .dns }}
+
+        user_data: |
+          #cloud-config    
+          chpasswd:
+            list: |
+              ubuntu:{{ .user_ubuntu }}
+              root:{{ .root_password }}
+            expire: False
+          system_info:
+            default_user:
+              name: ubuntu
+              plain_text_passwd: '{{ .user_ubuntu }}'
+              home: /home/ubuntu
+              shell: /bin/bash
+              lock_passwd: false
+              sudo: ALL=(ALL) NOPASSWD:ALL
+  
+    volumes:
+    - path: /users
+      params:
+        volume_type: CEPH-1000
+        volume_size: 50
+    - path: /var/lib/docker
+      params:
+        volume_type: CEPH-1000
+        volume_size: 100
+      
+    hooks:
+      provision:
+        before:
+          - task: testhook_pre
+        after:
+          - task: testhook_post
+         
+stacks:
+  visualizer:
+    component: visualizer
