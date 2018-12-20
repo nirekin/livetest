@@ -25,10 +25,14 @@ tasks:
   testhook_pre:
     component: distrib
     playbook: pre-create.yml
+    params:
+      testhook_pre_param: testhook_pre_param_value
 
   testhook_post:
     component: distrib
     playbook: post-create.yml
+    params:
+      testhook_post_param: testhook_post_param_value
 
 orchestrator:
   component: swarm
@@ -134,8 +138,14 @@ nodes:
       provision:
         before:
           - task: testhook_pre
+            params:
+              testhook_pre_param_before: testhook_pre_param_before_value
+        
         after:
           - task: testhook_post
+            params:
+              testhook_pre_param_after: testhook_pre_param_after_value
+
          
 stacks:
   visualizer:
