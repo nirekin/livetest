@@ -99,6 +99,7 @@ nodes:
       params:
         prefix_names: noreflex 
         image: PSA_Ubuntu_16.04
+        zone: intranet
 
         private_network: beos0025_net_dev
         public_network: L3OUT_Intranet_Safety
