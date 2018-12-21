@@ -13,6 +13,10 @@ ekara:
     visualizer:
       repository: ekara-platform/swarm-visualizer
       ref: 1.0.0-beta1
+    prometheus: 
+      repository: tbouvet/stack-prometheus  
+      ref: init-stack
+      
     distrib:
      repository: https://github.psa-cloud.com/u063326/lagoon-distribution
      ref: reflex-addon    
@@ -150,3 +154,6 @@ nodes:
 stacks:
   visualizer:
     component: visualizer
+  prometheus:
+    component: prometheus
+    
