@@ -139,13 +139,12 @@ nodes:
       provision:
         before:
           - task: testhook_pre
-            params:
-              testhook_pre_param_before: testhook_pre_param_before_value
         
         after:
           - task: testhook_post
             params:
-              testhook_pre_param_after: testhook_pre_param_after_value
+              tower_user: "{{ .tower_user }}"
+              tower_password: "{{ .tower_password }}"
 
          
 stacks:
