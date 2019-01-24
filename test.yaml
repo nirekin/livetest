@@ -29,14 +29,13 @@ tasks:
   testhook_pre:
     component: distrib
     playbook: pre-create.yml
-    params:
-      testhook_pre_param: testhook_pre_param_value
 
   testhook_post:
     component: distrib
     playbook: post-create.yml
     params:
-      testhook_post_param: testhook_post_param_value
+      tower_user: {{ .tower_user }}
+      tower_password: {{ .tower_password }}
 
 orchestrator:
   component: swarm
