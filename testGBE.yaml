@@ -1,5 +1,5 @@
 name: lagoon
-qualifier: dev
+qualifier: dev2
 
 ekara:
  
@@ -35,6 +35,7 @@ tasks:
     params:
       tower_user: {{ .tower_user }}
       tower_password: {{ .tower_password }}
+      param_in_task: "value_in_task"
 
 orchestrator:
   component: swarm
@@ -147,6 +148,7 @@ nodes:
             params:
               tower_user: "{{ .tower_user }}"
               tower_password: "{{ .tower_password }}"
+              param_in_hook: value_in_hook
 
          
 stacks:
