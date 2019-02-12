@@ -6,6 +6,7 @@ ekara:
   components:
     helios:
       repository: tbouvet/openstack-provider
+      ref: fix-modules
     swarm:
       repository: ekara-platform/swarm-orchestrator
       ref: 1.0.0-beta1      
