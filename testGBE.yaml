@@ -157,4 +157,42 @@ stacks:
     component: visualizer
   prometheus:
     component: prometheus
-    
+    params:
+      alertmanager:
+        conf:
+          global:
+            resolve_timeout: 3m
+          route:
+            receiver: 'sdi'
+            repeat_interval: 4h
+          receivers:
+          - name: 'sdi'
+            webhook_configs:
+            - url: http://platform.inetpsa.com/alert/sdi/rest/alertmanager
+      grafana:
+        ldap:
+          servers:
+          - host: annuaire.inetpsa.com
+            port: 389
+            use_ssl: false
+            start_tls: false
+            ssl_skip_verify: false
+            bind_dn: 'cn=mzplagld,ou=programs,o=psa'
+            bind_password: ldlag00n
+            search_filter: "(uid=%s)"
+            search_base_dns:
+            - "o=psa"
+            group_search_filter: '(&(objectClass=psareunisgroup)(|(uniquemember=cn=%s,ou=programs, o=psa)(uniquemember=cn=%s,ou=users, o=psa)))'
+            group_search_base_dns:
+            - "o=psa"
+          servers_attributes:
+            name: givenName
+            surname: sn
+            username: cn
+            member_of: cn
+            email: mail
+          servers_group_mappings:
+          - group_dn: 'LAG.GROUP.ADMIN'
+            org_role: Admin
+          - group_dn: 'MY_GROUP'
+            org_role: Editor
