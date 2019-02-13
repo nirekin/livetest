@@ -91,7 +91,7 @@ providers:
 
 nodes:
   nodeset1:
-    instances: 1
+    instances: 2
     
     provider:
       name: helios
