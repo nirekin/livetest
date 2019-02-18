@@ -151,14 +151,14 @@ nodes:
               tower_password: "{{ .tower_password }}"
               param_in_hook: value_in_hook
 
-volumes
+volumes:
   volume_name1:
-    content
+    content:
     - component: visualizer   
       path: /modules/docker_swarm_service.py
     - component: helios   
       path: /templates/heats/
-
+      
 stacks:
   visualizer:
     component: visualizer
