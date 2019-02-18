@@ -153,6 +153,7 @@ nodes:
 
 volumes
   volume_name1:
+    content
     - component: visualizer   
       path: /modules/docker_swarm_service.py
     - component: helios   
