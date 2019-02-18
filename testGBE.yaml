@@ -153,10 +153,10 @@ nodes:
 
 volumes
   volume_name1:
-  - component: visualizer   
-    path: /modules/docker_swarm_service.py
-  - component: helios   
-    path: /templates/heats/
+    - component: visualizer   
+      path: /modules/docker_swarm_service.py
+    - component: helios   
+      path: /templates/heats/
 
 stacks:
   visualizer:
