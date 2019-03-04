@@ -68,7 +68,7 @@ orchestrator:
 
 providers:
   helios:
-    component: dummy
+    component: helios
 
     params: 
       config:
