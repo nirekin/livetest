@@ -34,8 +34,9 @@ tasks:
     component: distrib
     playbook: post-create.yml
     params:
-      db_user: {{     .db.secret.user      }}
-      db_password: {{ .db.secret.password }}/{{ .db.secret.user }}  {{ .db.secret.password }}
+      db_driver: jdbc:{{ .db }}:thin:@{{ .db }}.{{ .project.phase.host }}:1522:{{ .project.phase.host }}
+      db_user: {{.db.secret.user}}
+      db_connection: {{ .db.secret.password }}
 
 orchestrator:
   component: swarm
