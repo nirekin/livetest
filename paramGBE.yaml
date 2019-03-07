@@ -35,7 +35,7 @@ tasks:
     playbook: post-create.yml
     params:
       db_user: {{     .db.secret.user      }}
-      db_password: {{ .db.secret.password }}
+      db_password: {{ .db.secret.password }}/{{ .db.secret.user }}  {{ .db.secret.password }}
 
 orchestrator:
   component: swarm
