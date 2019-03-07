@@ -34,7 +34,7 @@ tasks:
     component: distrib
     playbook: post-create.yml
     params:
-      db_driver: jdbc:{{ .db.name }}:thin:@{{ .db.name }}.{{ .project.phase.host }}:1522:{{ .project.phase.service }}
+      db_driver: jdbc:{{ .db.name }}:thin:@{{ .db.name }}.{{ .db.project.phase.host }}:1522:{{ .db.project.phase.service }}
       db_user: {{.db.secret.user}}
       db_connection: {{ .db.secret.password }}
 
