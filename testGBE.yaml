@@ -34,7 +34,7 @@ tasks:
     component: distrib
     playbook: post-create.yml
     params:
-      tower_user: {{ .tower_user }}
+      tower_user: {{ tower_user }}
       tower_password: {{ .tower_password }}
       param_in_task: "value_in_task"
 
