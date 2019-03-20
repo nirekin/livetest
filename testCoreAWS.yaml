@@ -53,7 +53,7 @@ providers:
 
 nodes:
   managers:
-    instances: 3        
+    instances: 1
     provider:
       name: aws
       params:
