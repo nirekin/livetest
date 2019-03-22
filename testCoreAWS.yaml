@@ -128,7 +128,7 @@ nodes:
         tags:
           Type: Docker 
           TestTagKey: TestTagValue
-		
+
   managers:
     workers: 4
     provider:
