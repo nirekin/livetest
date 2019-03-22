@@ -53,14 +53,13 @@ providers:
 
 nodes:
   managers:
-    instances: 1
+    instances: 3
     provider:
       name: aws
       params:
         instance_type: "t2.micro"
         ami_id: "ami-f90a4880"
         vpc_id: "vpc-880aeaef"
-        region: "eu-west-1"
         security_groups:
         - name: group1
           rules:
@@ -81,6 +80,16 @@ nodes:
             - 8080
             cidr_ip: 0.0.0.0/0
             rule_desc: allow all on port 8080
+          - proto: tcp
+            ports:
+            - 8090 #ekara api
+            cidr_ip: 0.0.0.0/0
+            rule_desc: allow all on port 8090
+          - proto: tcp
+            ports:
+            - 8500 #ekara consul
+            cidr_ip: 0.0.0.0/0
+            rule_desc: allow all on port 8500
         - name: swarm
           rules:
           - proto: tcp
@@ -119,6 +128,45 @@ nodes:
         tags:
           Type: Docker 
           TestTagKey: TestTagValue
+		
+  managers:
+    workers: 4
+    provider:
+      name: aws
+      params:
+        instance_type: "t2.micro"
+        ami_id: "ami-f90a4880"
+        vpc_id: "vpc-880aeaef"
+        security_groups:
+        - name: group1
+          rules:
+          - proto: tcp
+            ports:
+            - 22
+            cidr_ip: 0.0.0.0/0
+            rule_desc: allow all on port 22
+        - name: swarm
+          rules:
+          - proto: tcp
+            ports:
+            - 2377
+            cidr_ip: 0.0.0.0/0
+            rule_desc: cluster management communications
+          - proto: tcp
+            ports:
+            - 7946 
+            cidr_ip: 0.0.0.0/0
+            rule_desc: communication among nodes
+          - proto: udp
+            ports:
+            - 7946 
+            cidr_ip: 0.0.0.0/0
+            rule_desc: communication among nodes
+          - proto: udp
+            ports:
+            - 4789 
+            cidr_ip: 0.0.0.0/0
+            rule_desc: overlay network traffic 
 
 stacks:
   visualizer:
