@@ -57,6 +57,7 @@ nodes:
     provider:
       name: aws
       params:
+		region: "eu-west-1"
         instance_type: "t2.micro"
         ami_id: "ami-f90a4880"
         vpc_id: "vpc-880aeaef"
@@ -134,6 +135,7 @@ nodes:
     provider:
       name: aws
       params:
+		region: "eu-west-1"
         instance_type: "t2.micro"
         ami_id: "ami-f90a4880"
         vpc_id: "vpc-880aeaef"
