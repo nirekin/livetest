@@ -130,8 +130,8 @@ nodes:
           Type: Docker 
           TestTagKey: TestTagValue
 
-  managers:
-    workers: 4
+  workers:
+    instances: 4
     provider:
       name: aws
       params:
