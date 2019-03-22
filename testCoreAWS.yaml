@@ -167,6 +167,22 @@ nodes:
             - 4789 
             cidr_ip: 0.0.0.0/0
             rule_desc: overlay network traffic 
+    volumes:
+    - path: /data1
+      params:
+        device_name: xvdf
+        volume_type: gp2
+        volume_size: 9
+        delete_on_termination: true
+    - path: /var/lib/docker
+      params:
+        device_name: xvdg
+        volume_type: standard
+        volume_size: 1
+        delete_on_termination: true
+        tags:
+          Type: Docker 
+          TestTagKey: TestTagValue
 
 stacks:
   visualizer:
