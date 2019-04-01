@@ -42,8 +42,6 @@ orchestrator:
 providers:
   aws:
     component: aws
-    params:
-      region: "eu-west-1"
 
     env:
       AWS_REGION: {{ .aws_region }}
