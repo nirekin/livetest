@@ -62,6 +62,13 @@ nodes:
         ami_id: "ami-f90a4880"
         vpc_id: "vpc-880aeaef"
         security_groups:
+        - name: group1
+          rules:
+          - proto: tcp
+            ports:
+            - 22
+            cidr_ip: 0.0.0.0/0
+            rule_desc: allow all on port 22		
         - name: group2
           rules:
           - proto: tcp
@@ -84,6 +91,29 @@ nodes:
             - 8500 #ekara consul
             cidr_ip: 0.0.0.0/0
             rule_desc: allow all on port 8500
+        - name: swarm
+          rules:
+          - proto: tcp
+            ports:
+            - 2377
+            cidr_ip: 0.0.0.0/0
+            rule_desc: cluster management communications
+          - proto: tcp
+            ports:
+            - 7946 
+            cidr_ip: 0.0.0.0/0
+            rule_desc: communication among nodes
+          - proto: udp
+            ports:
+            - 7946 
+            cidr_ip: 0.0.0.0/0
+            rule_desc: communication among nodes
+          - proto: udp
+            ports:
+            - 4789 
+            cidr_ip: 0.0.0.0/0
+            rule_desc: overlay network traffic
+
     volumes:
     - path: /data1
       params:
@@ -129,4 +159,4 @@ nodes:
 
 stacks:
   visualizer:
-    component: visualizer
+    component: visualizer	  
