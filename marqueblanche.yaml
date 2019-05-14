@@ -10,10 +10,10 @@ ekara:
     marqueblanche:
       repository: https://github.psa-cloud.com/trk00/marqueblanche
       ref: lagoon  
-       auth:
-         method: basic
-         user: {{ .git.user }}
-         password: {{ .git.password }}
+      auth:
+        method: basic
+        user: {{ .git.user }}
+        password: {{ .git.password }}
 orchestrator:
   component: ek-swarm
 
