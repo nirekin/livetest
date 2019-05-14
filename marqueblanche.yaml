@@ -18,7 +18,7 @@ orchestrator:
   component: ek-swarm
 
 providers:
-  aws:
+  ek-aws:
     component: ek-aws
     params:
       instance_type: "t3.xlarge"
@@ -33,7 +33,7 @@ nodes:
   mongoN1:
     instances: 1
     provider:
-      name: aws
+      name: ek-aws
     volumes:
       - path: /data1
         params:
@@ -55,7 +55,7 @@ nodes:
   mongoN2:
     instances: 1
     provider:
-      name: aws
+      name: ek-aws
     volumes:
       - path: /data1
         params:
@@ -77,7 +77,7 @@ nodes:
   mongoN3:
     instances: 1
     provider:
-      name: aws
+      name: ek-aws
     volumes:
       - path: /data1
         params:
