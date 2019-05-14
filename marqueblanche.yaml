@@ -52,8 +52,7 @@ nodes:
             TestTagKey: TestTagValue
     labels:
       node_name: mongoN1
-
-   mongoN2:
+  mongoN2:
     instances: 1
     provider:
       name: aws
@@ -75,8 +74,7 @@ nodes:
             TestTagKey: TestTagValue
     labels:
       node_name: mongoN2
-  
-mongoN3:
+  mongoN3:
     instances: 1
     provider:
       name: aws
