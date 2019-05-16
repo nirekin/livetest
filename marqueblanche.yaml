@@ -99,7 +99,13 @@ nodes:
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
-      - path: /users/trk00/data
+      - path: /users/trk00/data/rsn
+        params:
+          device_name: xvdf
+          volume_type: gp2
+          volume_size: 9
+          delete_on_termination: true
+      - path: /users/trk00/data/tmp
         params:
           device_name: xvdf
           volume_type: gp2
@@ -115,7 +121,7 @@ nodes:
         params:
           device_name: xvdg
           volume_type: standard
-          volume_size: 1
+          volume_size: 20
           delete_on_termination: true
           tags:
             Type: Docker
@@ -133,7 +139,13 @@ nodes:
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
-      - path: /users/trk00/data
+      - path: /users/trk00/data/rsn
+        params:
+          device_name: xvdf
+          volume_type: gp2
+          volume_size: 9
+          delete_on_termination: true
+      - path: /users/trk00/data/tmp
         params:
           device_name: xvdf
           volume_type: gp2
@@ -149,7 +161,7 @@ nodes:
         params:
           device_name: xvdg
           volume_type: standard
-          volume_size: 1
+          volume_size: 20
           delete_on_termination: true
           tags:
             Type: Docker
@@ -167,7 +179,13 @@ nodes:
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
-      - path: /users/trk00/data
+      - path: /users/trk00/data/rsn
+        params:
+          device_name: xvdf
+          volume_type: gp2
+          volume_size: 9
+          delete_on_termination: true
+      - path: /users/trk00/data/tmp
         params:
           device_name: xvdf
           volume_type: gp2
@@ -183,7 +201,7 @@ nodes:
         params:
           device_name: xvdg
           volume_type: standard
-          volume_size: 1
+          volume_size: 20
           delete_on_termination: true
           tags:
             Type: Docker
