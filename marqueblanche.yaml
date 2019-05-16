@@ -14,8 +14,6 @@ ekara:
         method: basic
         user: {{ .git.user }}
         password: {{ .git.password }}
-    ek-core:
-      repository: ekara-platform/core-stack
     ek-aws:
       repository: ekara-platform/aws-provider
     ek-openstack:
@@ -62,6 +60,13 @@ providers:
             - proto: tcp
               ports:
                 - 22
+              cidr_ip: 0.0.0.0/0
+              rule_desc: Node SSH access
+        - name: ek-visu
+          rules:
+            - proto: tcp
+              ports:
+                - 8080
               cidr_ip: 0.0.0.0/0
               rule_desc: Node SSH access
         - name: ek-swarm
@@ -232,5 +237,3 @@ stacks:
     component: visualizer
   marqueblanche:
     component: marqueblanche
-  ek-core:
-    component: ek-core
