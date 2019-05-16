@@ -95,19 +95,19 @@ nodes:
     volumes:
       - path: /users/trk00/tmp
         params:
-          device_name: xvdf
+          device_name: xvdh
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
       - path: /users/trk00/data/rsn
         params:
-          device_name: xvdf
+          device_name: xvdi
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
       - path: /users/trk00/data/tmp
         params:
-          device_name: xvdf
+          device_name: xvdj
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
@@ -135,19 +135,19 @@ nodes:
     volumes:
       - path: /users/trk00/tmp
         params:
-          device_name: xvdf
+          device_name: xvdh
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
       - path: /users/trk00/data/rsn
         params:
-          device_name: xvdf
+          device_name: xvdi
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
       - path: /users/trk00/data/tmp
         params:
-          device_name: xvdf
+          device_name: xvdj
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
@@ -175,19 +175,19 @@ nodes:
     volumes:
       - path: /users/trk00/tmp
         params:
-          device_name: xvdf
+          device_name: xvdh
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
       - path: /users/trk00/data/rsn
         params:
-          device_name: xvdf
+          device_name: xvdi
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
       - path: /users/trk00/data/tmp
         params:
-          device_name: xvdf
+          device_name: xvdj
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
