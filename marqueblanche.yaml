@@ -97,6 +97,45 @@ nodes:
     instances: 1
     provider:
       name: ek-aws
+      params:
+        security_groups:
+          - name: openldap
+            rules:
+              - proto: tcp
+                ports:
+                  - 389
+                cidr_ip: 0.0.0.0/0
+                rule_desc: allow all on port 389 for openldap
+              - proto: tcp
+                ports:
+                  - 639
+                cidr_ip: 0.0.0.0/0
+                rule_desc: allow all on port 639 for openldap
+          - name: phpldapadmin
+            rules:
+              - proto: tcp
+                ports:
+                  - 881
+                cidr_ip: 0.0.0.0/0
+                rule_desc: allow all on port 881 for phpldapadmin 
+              - proto: tcp
+                ports:
+                  - 6443
+                cidr_ip: 0.0.0.0/0
+                rule_desc: allow all on port 6443 for phpldapadmin
+          - name: loadbalancer
+            rules:
+              - proto: tcp
+                ports:
+                  - 80
+                cidr_ip: 0.0.0.0/0
+                rule_desc: allow all on port 80 for the loadbalancer
+              - proto: tcp
+                ports:
+                  - 443
+                cidr_ip: 0.0.0.0/0
+                rule_desc: allow all on port 443 for the loadbalancer
+
     labels:
       node_name: app_manager
     volumes:
