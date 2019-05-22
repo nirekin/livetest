@@ -94,9 +94,7 @@ nodes:
         volume_type: standard
         volume_size: 1
         delete_on_termination: true
-        tags:
-          Type: Docker 
-          TestTagKey: TestTagValue      
+
   mongoN3:
     instances: 1
     provider:
@@ -116,6 +114,3 @@ nodes:
         volume_type: standard
         volume_size: 1
         delete_on_termination: true
-        tags:
-          Type: Docker 
-          TestTagKey: TestTagValue      
