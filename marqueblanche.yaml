@@ -141,19 +141,19 @@ nodes:
     volumes:
       - path: /users/trk00/OpenLDAP/data/
         params:
-          device_name: xvdf
+          device_name: xvdl
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
       - path: /users/trk00/OpenLDAP/data/ldap
         params:
-          device_name: xvdf
+          device_name: xvdm
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
       - path: /home/seradmin/traefik/certs
         params:
-          device_name: xvdf
+          device_name: xvdn
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
