@@ -135,9 +135,9 @@ nodes:
     labels:
       node_name: app_manager
     volumes:
-      - path: /users/trk00/OpenLDAP/data/
+      - path: /users/trk00/OpenLDAP/data/slapd.d
         params:
-          device_name: xvdl
+          device_name: xvdo
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
@@ -153,7 +153,7 @@ nodes:
           volume_type: gp2
           volume_size: 9
           delete_on_termination: true
-          
+
 stacks:
   visualizer:
     component: visualizer
