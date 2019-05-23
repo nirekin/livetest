@@ -99,7 +99,7 @@ nodes:
       name: ek-aws
       params:
         security_groups:
-          - name: openldap
+          - name: openldap-phpldapadmin-loadbalancer
             rules:
               - proto: tcp
                 ports:
@@ -111,8 +111,6 @@ nodes:
                   - 639
                 cidr_ip: 0.0.0.0/0
                 rule_desc: allow all on port 639 for openldap
-          - name: phpldapadmin
-            rules:
               - proto: tcp
                 ports:
                   - 881
@@ -123,8 +121,6 @@ nodes:
                   - 6443
                 cidr_ip: 0.0.0.0/0
                 rule_desc: allow all on port 6443 for phpldapadmin
-          - name: loadbalancer
-            rules:
               - proto: tcp
                 ports:
                   - 80
