@@ -9,8 +9,8 @@ ekara:
       repository: ekara-platform/swarm-visualizer-stack
 
 vars:
-  key1_descriptor = val1_descriptor
-  key2_descriptor = val2_descriptor
+  key1_descriptor: val1_descriptor
+  key2_descriptor: val2_descriptor
   
 providers:
   ek-aws:
