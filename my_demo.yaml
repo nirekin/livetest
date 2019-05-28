@@ -34,7 +34,7 @@ nodes:
                 ports:
                   - {{ ".Vars.app.visualizer.port" }} 
                 cidr_ip: 0.0.0.0/0
-                rule_desc: allow all on port {{ .app.visualizer.port }} for the swarm visualizer 
+                rule_desc: allow all on port {{ .Vars.app.visualizer.port }} for the swarm visualizer 
     volumes:
       - path: /data1
         params:
