@@ -6,7 +6,7 @@ ekara:
     repository: nirekin/distribution
   components:
     visualizer:
-      repository: ekara-platform/swarm-visualizer-stack
+      repository: nirekin/swarm-visualizer-stack
 
 vars:
   key1_descriptor: val1_descriptor
