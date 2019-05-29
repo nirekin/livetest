@@ -11,6 +11,7 @@ ekara:
 vars:
   key1_descriptor: val1_descriptor
   key2_descriptor: val2_descriptor
+  key3_descriptor: {{ .Vars.global.value1.from.cli }} 
   
 providers:
   ek-aws:
