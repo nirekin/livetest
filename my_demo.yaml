@@ -1,25 +1,13 @@
-name: ekara-demo-var
+name: ekara-demo-al3
 qualifier: dev
 
 ekara:
   distribution:
-    repository: nirekin/distribution
+    repository: ekara-platform/distribution
   components:
     visualizer:
-      repository: nirekin/swarm-visualizer-stack
+      repository: ekara-platform/swarm-visualizer-stack
 
-vars:
-  key1_descriptor: val1_descriptor
-  key2_descriptor: val2_descriptor
-  key3_descriptor: "{{ .Vars.global.value1.from.cli }}"
-  
-providers:
-  ek-aws:
-    component: ek-aws
-    params:
-      instance_type: "t2.micro"
-      ami_id: "ami-f90a4880"
-      vpc_id: "vpc-880aeaef"
 nodes:
   _:
     provider:
@@ -53,7 +41,9 @@ nodes:
             Type: Docker
             TestTagKey: TestTagValue
   nodeset1:
-    instances: 1
+    instances: 3
+  nodeset2:
+    instances: 4
 
 stacks:
   visualizer:
