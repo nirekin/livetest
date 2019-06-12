@@ -41,9 +41,9 @@ nodes:
             Type: Docker
             TestTagKey: TestTagValue
   nodeset1:
-    instances: 3
+    instances: 1
   nodeset2:
-    instances: 4
+    instances: 1
 
 stacks:
   visualizer:
