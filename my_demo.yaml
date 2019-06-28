@@ -10,7 +10,12 @@ ekara:
 providers:
   ek-aws:
     component: ek-aws
+    env:
+      AWS_REGION: {{ .Vars.ek.aws.region }}
+      AWS_ACCESS_KEY_ID: {{ .Vars.ek.aws.accessKey.id }}
+      AWS_SECRET_ACCESS_KEY: {{ .Vars.ek.aws.accessKey.secret }}
     params:
+      region: {{ .Vars.ek.aws.region }} 
       security_groups:
         - name: ek-ssh
           rules:
