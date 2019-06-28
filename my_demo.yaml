@@ -7,7 +7,40 @@ ekara:
   components:
     visualizer:
       repository: ekara-platform/swarm-visualizer-stack
-
+providers:
+  ek-aws:
+    component: ek-aws
+    params:
+      security_groups:
+        - name: ek-ssh
+          rules:
+            - proto: tcp
+              ports:
+                - 22
+              cidr_ip: 0.0.0.0/0
+              rule_desc: Node SSH access
+        - name: ek-swarm
+          rules:
+            - proto: tcp
+              ports:
+                - 2377
+              cidr_ip: 0.0.0.0/0
+              rule_desc: Swarm cluster management communications
+            - proto: tcp
+              ports:
+                - 7946
+              cidr_ip: 0.0.0.0/0
+              rule_desc: Swarm communication among nodes
+            - proto: udp
+              ports:
+                - 7946
+              cidr_ip: 0.0.0.0/0
+              rule_desc: Swarm communication among nodes
+            - proto: udp
+              ports:
+                - 4789
+              cidr_ip: 0.0.0.0/0
+              rule_desc: Swarm overlay network traffic
 nodes:
   _:
     provider:
