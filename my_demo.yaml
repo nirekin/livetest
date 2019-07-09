@@ -8,7 +8,7 @@ ekara:
     visualizer:
       repository: ekara-platform/swarm-visualizer-stack
 nodes:
-  _:
+  "*":
     provider:
       name: ek-aws
       params:
