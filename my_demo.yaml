@@ -23,7 +23,7 @@ nodes:
                 ports:
                   - {{ .Vars.app.visualizer.port }} 
                 cidr_ip: 0.0.0.0/0
-                rule_desc: allow all on port {{ .app.visualizer.port }}
+                rule_desc: allow all on port {{ .Vars.app.visualizer.port }}
     volumes:
       - path: /data1
         params:
