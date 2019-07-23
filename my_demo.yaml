@@ -21,7 +21,7 @@ nodes:
             rules:
               - proto: tcp
                 ports:
-                  - {{ .app.visualizer.port }} 
+                  - {{ .Vars.app.visualizer.port }} 
                 cidr_ip: 0.0.0.0/0
                 rule_desc: allow all on port {{ .app.visualizer.port }}
     volumes:
