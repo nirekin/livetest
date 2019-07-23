@@ -41,8 +41,12 @@ nodes:
             Type: Docker
             TestTagKey: TestTagValue
   nodeSet1:
+    provider:
+      name: ek-aws
     instances: 3
   nodeSet2:
+    provider:
+      name: ek-aws
     instances: 4
 
 stacks:
