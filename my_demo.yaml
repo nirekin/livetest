@@ -7,8 +7,9 @@ ekara:
   components:
     visualizer:
       repository: ekara-platform/swarm-visualizer-stack
+
 nodes:
-  "*":
+  _:
     provider:
       name: ek-aws
       params:
@@ -20,9 +21,9 @@ nodes:
             rules:
               - proto: tcp
                 ports:
-                  - {{ .Vars.app.visualizer.port }} 
+                  - {{ .app.visualizer.port }} 
                 cidr_ip: 0.0.0.0/0
-                rule_desc: allow all on port {{ .Vars.app.visualizer.port }} for the swarm visualizer 
+                rule_desc: allow all on port {{ .app.visualizer.port }}
     volumes:
       - path: /data1
         params:
@@ -39,10 +40,10 @@ nodes:
           tags:
             Type: Docker
             TestTagKey: TestTagValue
-  nodeset1:
-    instances: 2
-  nodeset2:
-    instances: 1
+  nodeSet1:
+    instances: 3
+  nodeSet2:
+    instances: 4
 
 stacks:
   visualizer:
