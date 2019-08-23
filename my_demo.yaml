@@ -1,4 +1,4 @@
-name: ekara-demo-al4
+name: ekara-demo-al5
 qualifier: light
 
 ekara:
@@ -36,7 +36,7 @@ nodes:
     labels:
       label1: value1
       label2: value2
-    instances: 1
+    instances: 3
 
 stacks:
   visualizer:
